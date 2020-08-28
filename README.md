@@ -1,4 +1,8 @@
-# vuex-class
+# Introducing Vuex 👨‍🏫
+
+A little project to teach vuex :D
+
+I create this projecto to show an example to my classmates to how use vuex in our the team projects
 
 ## Project setup
 ```

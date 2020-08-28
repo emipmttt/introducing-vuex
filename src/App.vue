@@ -1,19 +1,34 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <h1>Comunicación entre componentes</h1>
+
+    <h2>Estacionamiento</h2>
+    Vehiculos totales: {{vehicles}}
+    <br />
+    <Parking
+      @addVehicle="updateParking(index)"
+      :name="parking.name"
+      v-for="(parking, index) in parkings"
+      :key="parking.name"
+    />
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Parking from "@/components/Parking";
+
+import { mapState, mapGetters } from "vuex";
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
-    HelloWorld
-  }
-}
+    Parking,
+  },
+  computed: {
+    ...mapState(["parkings"]),
+    ...mapGetters(["vehicles"]),
+  },
+};
 </script>
 
 <style>
